@@ -1,5 +1,15 @@
 package config
 
+import (
+	"fmt"
+	"os"
+
+	"github.com/joho/godotenv"
+	"github.com/miceremwirigi/go-sales-api/models"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
+
 var DB *gorm.DB
 
 func Connect() {
@@ -24,7 +34,7 @@ func Connect() {
 
 	DB = db // connection variable
 	fmt.Println("db connected successfully")
-	AutoMigrate(DB) //pass connection into automigrate function
+	// AutoMigrate(DB) //pass connection into automigrate function
 }
 
 func AutoMigrate(connection *gorm.DB) {
